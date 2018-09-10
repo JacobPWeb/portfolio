@@ -1,19 +1,32 @@
-var gulp = require('gulp');
-var sass = require('gulp-sass');
-var minifyCSS = require('gulp-csso');
-var concat = require('gulp-concat');
-var sourcemaps = require('gulp-sourcemaps');
+const gulp = require('gulp');
+const sass = require('gulp-sass');
+const minifyCSS = require('gulp-csso');
+const concat = require('gulp-concat');
+const sourcemaps = require('gulp-sourcemaps');
+const webserver = require('gulp-webserver');
+const inject = require('gulp-inject');
+
+const stylesLocation = 'build/css';
+const jsLocation = 'build/js';
+
 
 gulp.task('html', function () {
-  return gulp.src('pages/**/*.html')
-    .pipe(gulp.dest('build/html'))
+  gulp.src([
+    'htmlTemplates/head.html',
+    'htmlTemplates/header.html',
+    'pages/homepage/*.html',
+    'htmlTemplates/footer.html'
+  ])
+    .pipe(concat('home.html'))
+    .pipe(gulp.dest('build/html/pages/home'));
+  return
 });
 
 gulp.task('css', function () {
   return gulp.src('style/*.scss')
     .pipe(sass())
     .pipe(minifyCSS())
-    .pipe(gulp.dest('build/css'))
+    .pipe(gulp.dest(stylesLocation))
 });
 
 gulp.task('js', function () {
@@ -21,7 +34,7 @@ gulp.task('js', function () {
     .pipe(sourcemaps.init())
     .pipe(concat('app.min.js'))
     .pipe(sourcemaps.write())
-    .pipe(gulp.dest('build/js'))
+    .pipe(gulp.dest(jsLocation))
 });
 
-gulp.task('default', ['html', 'css', 'js']);
+gulp.task('build', ['html', 'css', 'js']);

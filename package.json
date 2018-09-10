@@ -17,13 +17,18 @@
   },
   "homepage": "https://github.com/JacobPWeb/portfolio#readme",
   "dependencies": {
+    "browserify": "^16.2.2",
     "express": "^4.16.3",
+    "http": "0.0.0",
+    "spectre.css": "^0.5.3"
+  },
+  "devDependencies": {
+    "gulp-inject": "^4.3.2",
+    "gulp-webserver": "^0.9.1",
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.1",
     "gulp-csso": "^3.0.1",
     "gulp-sass": "^4.0.1",
-    "gulp-sourcemaps": "^2.6.4",
-    "http": "0.0.0",
-    "spectre.css": "^0.5.3"
+    "gulp-sourcemaps": "^2.6.4"
   }
 }
