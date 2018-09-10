@@ -18,6 +18,12 @@
   "homepage": "https://github.com/JacobPWeb/portfolio#readme",
   "dependencies": {
     "express": "^4.16.3",
-    "http": "0.0.0"
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-csso": "^3.0.1",
+    "gulp-sass": "^4.0.1",
+    "gulp-sourcemaps": "^2.6.4",
+    "http": "0.0.0",
+    "spectre.css": "^0.5.3"
   }
 }
